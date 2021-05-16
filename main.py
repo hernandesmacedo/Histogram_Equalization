@@ -4,6 +4,8 @@ import src.cli.menu as menu
 
 #==========[Main Function]==========
 def main():
+  img_original = menu.load()
+
   while True:
     selection = menu.home()
 
