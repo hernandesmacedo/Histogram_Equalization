@@ -1,6 +1,6 @@
 import numpy
 from . import dialog as d
-from ..helper.img import import_image
+from ..helper.img import export_image, import_image
 
 __success_dialog = d.Dialog(
   'A operação foi concluída com sucesso!',
@@ -34,3 +34,15 @@ def load() -> numpy.ndarray:
   else:
     __success_dialog.show()
     return result
+
+def export(img: list) -> None:
+  name = d.Input(
+    'Insira abaixo o nome desejado.',
+    header='Exportação',
+    input_title='Nome do arquivo'
+  ).show()
+
+  if export_image(img, name):
+    __success_dialog.show()
+  else:
+    __failure_dialog.show()
