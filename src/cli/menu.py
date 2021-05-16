@@ -15,6 +15,7 @@ __failure_dialog = d.Dialog(
 def home() -> int:
   menu = d.Menu(
     'Sair',
+    'Recomeçar',
     header='Por favor, selecione uma opção abaixo:')
 
   return menu.show()

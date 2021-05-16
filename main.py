@@ -17,6 +17,9 @@ def main():
     if selection == 0:
       break
 
+    elif selection == 1:
+      img_matrix = get_pixels(img_original)
+
 #==========[Script Initializer]==========
 if __name__ == "__main__":
   main()
