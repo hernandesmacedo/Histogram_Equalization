@@ -13,13 +13,15 @@ class Histogram:
       for x in range(width):
         pixel = matrix[y][x]
 
-        self.red[pixel[0]] += 1
+        print(pixel)
+
+        self.red[pixel[2]] += 1
         self.green[pixel[1]] += 1
-        self.blue[pixel[2]] += 1
+        self.blue[pixel[0]] += 1
 
   def basic(self, pixel: list) -> list:
     return [
-      self.red[pixel[0]],
+      self.red[pixel[2]],
       self.green[pixel[1]],
-      self.blue[pixel[2]]
+      self.blue[pixel[0]]
     ]
