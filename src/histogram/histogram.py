@@ -1,4 +1,4 @@
-class histogram:
+class Histogram:
   def __init__(self, matrix: list) -> None:
     self.red = [0] * 256
     self.green = [0] * 256
