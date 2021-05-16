@@ -15,7 +15,6 @@ __failure_dialog = d.Dialog(
 def home() -> int:
   menu = d.Menu(
     'Sair',
-    'Recomeçar',
     'Equalizar histograma',
     'Exportar resultado',
     header='Por favor, selecione uma opção abaixo:')
