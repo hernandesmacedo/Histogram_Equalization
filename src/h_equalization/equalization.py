@@ -3,7 +3,7 @@ import os
 
 NIVEIS_DE_CINZA = 256 #rk
 
-def to_gray_scale(img: Image, img_lines: int, img_columns: int) -> list:
+def to_gray_scale(img: Image) -> list:
     img_gray = Image.open(img.filename).convert('L')
     img_gray.save('./gray_scale/' + img.filename.split('/')[-1])
 
