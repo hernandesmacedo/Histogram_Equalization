@@ -9,7 +9,6 @@ import src.cli.menu as menu
 def main():
   img_original = menu.load()
   img_matrix = get_pixels(img_original)
-  print(img_matrix)
 
   while True:
     selection = menu.home()
