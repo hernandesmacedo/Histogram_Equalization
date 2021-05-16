@@ -10,7 +10,7 @@ import src.cli.menu as menu
 def main():
   img_original = menu.load()
   img_columns, img_lines = img_original.size
-  print(img_columns, img_lines)
+
   while True:
     selection = menu.home()
 
