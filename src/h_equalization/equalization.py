@@ -14,10 +14,7 @@ def get_histogram(gray_img_matrix: list, img_lines: int, img_columns: int) -> li
     for l in range (img_lines):
         for c in range (img_columns):
             histogram[ gray_img_matrix[l][c] ] += 1
-
-    print('\n---------------------')
-    print('HISTOGRAM')
-    print(histogram)
+            
     return histogram
 
 def get_pr_rk(nk: list) -> list:
@@ -26,21 +23,13 @@ def get_pr_rk(nk: list) -> list:
     for value in nk:
         pr_rk.append( value/sum_rk )
 
-    print('\n---------------------')
-    print('PRRK')
-    print(pr_rk)
-
     return  pr_rk
         
 def get_freq(pr_rk: list) -> list:
     freq = []
     freq.append( pr_rk[0] )
     for rk in range (1, NIVEIS_DE_CINZA):
-        freq.append( pr_rk[rk] + pr_rk[rk - 1] )
-
-    print('\n---------------------')
-    print('freq')
-    print(freq)
+        freq.append( sum( pr_rk[ : rk+1 ] ) )
 
     return freq
         
@@ -49,10 +38,6 @@ def get_eq(freq: list) -> list:
     for value in freq:
         eq.append( (NIVEIS_DE_CINZA-1)*value )
 
-    print('\n---------------------')
-    print('eq')
-    print(eq)
-
     return eq
         
 def get_new_rk(eq: list) -> list:
@@ -60,16 +45,9 @@ def get_new_rk(eq: list) -> list:
     for value in eq:
         new_rk.append( int(value) )
 
-    print('\n---------------------')
-    print('new_rk')
-    print(new_rk)
-
     return new_rk
 
 def equalize(original_img: list, new_rk: list, img_lines: int, img_columns: int):
-
-    print('antes')
-    print(original_img)
     
     new_img = []
 
@@ -79,9 +57,5 @@ def equalize(original_img: list, new_rk: list, img_lines: int, img_columns: int)
         
     # converte a lista anterior para uma lista 2D:
     new_img = [new_img[offset: offset + img_columns] for offset in range(0, img_columns*img_lines, img_columns)]
-    
 
-    print('\n---------------------')
-    print('newimg22')
-    print(new_img)
     return new_img
