@@ -1,24 +1,18 @@
+from PIL import Image
 import numpy
-from pathlib import Path
-from cv2 import imread, imwrite
+from cv2 import imwrite
 
-def get_pixels(img: numpy.ndarray) -> list:
-  width, height = len(img[0]), len(img)
-  pixels = []
+def get_pixels(img: Image, img_lines: int, img_columns: int) -> list:  
+    img_matrix = list(img.getdata())
+    # converte a lista anterior para uma lista 2D:
+    img_matrix = [img_matrix[offset: offset + img_columns] for offset in range(0, img_columns*img_lines, img_columns)]
 
-  for y in range(height):
-    new_line = []
-    for x in range(width):
-      new_line.append(img[y][x].tolist())
-    pixels.append(new_line)
+    return img_matrix
 
-  return pixels
-
-def import_image(file_path: str):
-  return imread(file_path)
+def import_image(file_path: str) -> Image:
+  return Image.open(file_path)
 
 def export_image(matrix: list, name: str) -> bool:
-  Path('./export/').mkdir(exist_ok=True)
   filename = './export/' + name + '.png'
 
   try:
