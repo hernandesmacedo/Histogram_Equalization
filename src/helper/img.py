@@ -1,5 +1,6 @@
 import numpy
-from cv2 import imread
+from pathlib import Path
+from cv2 import imread, imwrite
 
 def get_pixels(img: numpy.ndarray) -> list:
   width, height = len(img[0]), len(img)
@@ -15,3 +16,13 @@ def get_pixels(img: numpy.ndarray) -> list:
 
 def import_image(file_path: str):
   return imread(file_path)
+
+def export_image(matrix: list, name: str) -> bool:
+  Path('./export/').mkdir(exist_ok=True)
+  filename = './export/' + name + '.png'
+
+  try:
+    imwrite(filename, numpy.array(matrix))
+  except:
+    return False
+  return True
