@@ -1,14 +1,13 @@
 from PIL import Image
 import os
 
-
 NIVEIS_DE_CINZA = 256 #rk
 
 def to_gray_scale(img: Image, img_lines: int, img_columns: int) -> list:
     img_gray = Image.open(img.filename).convert('L')
-    img_gray.save(r'././gray_scale/' + img.filename.split('/')[-1])
+    img_gray.save('./gray_scale/' + img.filename.split('/')[-1])
 
-    return Image.open(r'././gray_scale/' + img.filename.split('/')[-1])
+    return Image.open('./gray_scale/' + img.filename.split('/')[-1])
 
 def get_histogram(gray_img_matrix: list, img_lines: int, img_columns: int) -> list:
     histogram = [0] * NIVEIS_DE_CINZA
@@ -71,8 +70,6 @@ def equalize(original_img: list, new_rk: list, img_lines: int, img_columns: int)
 
     print('antes')
     print(original_img)
-
-    filename = 'karai.png'
     
     new_img = []
 

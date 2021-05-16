@@ -13,7 +13,6 @@ def import_image(file_path: str) -> Image:
   return Image.open(file_path)
 
 def export_image(matrix: list, name: str) -> bool:
-  Path('./export/').mkdir(exist_ok=True)
   filename = './export/' + name + '.png'
 
   try:

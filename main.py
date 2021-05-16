@@ -1,7 +1,6 @@
 #==========[Local Libraries]==========
 #-----[Functionality]-----
 from src.helper.img import get_pixels
-from src.helper.matrix import print_matrix
 from src.h_equalization.equalization import *
 
 #-----[Terminal Interface]-----
@@ -10,9 +9,8 @@ import src.cli.menu as menu
 #==========[Main Function]==========
 def main():
   img_original = menu.load()
-  img_matrix = get_pixels(img_original)
   img_columns, img_lines = img_original.size
-
+  img_matrix = get_pixels(img_original, img_lines, img_columns)
   while True:
     selection = menu.home()
 
@@ -34,7 +32,7 @@ def main():
       new_img = equalize(gray_img_matrix, new_rk, img_lines, img_columns)
 
     elif selection == 3:
-      menu.export(img_matrix)
+      menu.export(new_img)
 
 #==========[Script Initializer]==========
 if __name__ == "__main__":
