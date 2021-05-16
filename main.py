@@ -1,13 +1,9 @@
 #==========[Local Libraries]==========
 #-----[Functionality]-----
-from src.helper.img import get_pixels
-
-#-----[Terminal Interface]-----
-import src.cli.menu as menu
+from src.histogram.histogram import Histogram
+from src.helper.img import get_pixels, import_image
 
 #==========[Main Function]==========
-from src.histogram.histogram import Histogram
-from src.helper.img import import_image
 
 def main():
   img_original = import_image('./sample/color_test.png')
