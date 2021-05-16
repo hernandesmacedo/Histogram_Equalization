@@ -3,10 +3,11 @@
 from src.helper.img import get_pixels
 from src.h_equalization.equalization import *
 
-#-----[Terminal Interface]-----
-import src.cli.menu as menu
+#-----[Terminal]-----
+from src.helper.histogram import print_basic
 
 #==========[Main Function]==========
+
 def main():
   img_original = menu.load()
   img_columns, img_lines = img_original.size
