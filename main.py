@@ -19,6 +19,9 @@ def main():
     elif selection == 1:
       img_matrix = get_pixels(img_original)
 
+    elif selection == 2:
+      menu.export(img_matrix)
+
 #==========[Script Initializer]==========
 if __name__ == "__main__":
   main()

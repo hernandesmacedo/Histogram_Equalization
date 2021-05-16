@@ -16,6 +16,7 @@ def home() -> int:
   menu = d.Menu(
     'Sair',
     'Recomeçar',
+    'Exportar resultado',
     header='Por favor, selecione uma opção abaixo:')
 
   return menu.show()
