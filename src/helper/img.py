@@ -10,7 +10,10 @@ def get_pixels(img: Image, img_lines: int, img_columns: int) -> list:
     return img_matrix
 
 def import_image(file_path: str) -> Image:
-  return Image.open(file_path)
+  try:
+    return Image.open(file_path)
+  except:
+    return None
 
 def export_image(matrix: list, name: str) -> bool:
   filename = './export/' + name + '.png'
